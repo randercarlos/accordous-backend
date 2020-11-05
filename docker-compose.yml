@@ -5,29 +5,21 @@ services:
     image: mysql:5.7
     container_name: mysql
     volumes:
-      - ./__docker/mysql:/var/lib/mysql
+      - ./storage/docker/mysql:/var/lib/mysql
     ports:
       - 3306:3306
     environment:
       - MYSQL_ROOT_PASSWORD=96430409
-      - MYSQL_DATABASE=sudeste-online
-      - MYSQL_USER=sudeste
-      - MYSQL_PASSWORD=online
+      - MYSQL_DATABASE=accordous
+      - MYSQL_USER=accordous
+      - MYSQL_PASSWORD=accordous
 
   laravel:
-    tty: true
-    image: docker.io/bitnami/laravel:7
+    image: ambientum/php:7.2-nginx
     container_name: laravel
-    restart: always
-    environment:
-      - DB_HOST=mysql
-      - DB_DATABASE=sudeste-online
-      - DB_USERNAME=sudeste
-      - DB_PASSWORD=online
+    volumes:
+      - .:/var/www/app
+    ports:
+      - 3000:8080
     depends_on:
       - mysql
-    ports:
-      - 3000:3000
-    volumes:
-      - ./:/app
-    # privileged: true # Privileged mode could be required to run this container under Windows

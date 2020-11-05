@@ -97,7 +97,7 @@ TEXT;
 
         } else {
             return response()->json([
-                'error' => $exception
+                'error' => $errorDescription
             ], 500);
 
         }

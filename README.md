@@ -1,5 +1,5 @@
 <h4 align="center">
-  🚀 Sudeste Online - Teste técnico
+  🚀 Accordous - Gerenciamento de Contratos - Teste técnico
 </h4>
 
 <p align="center">
@@ -18,6 +18,10 @@
 
 <br>
 
+<p align="center">
+  <img alt="Accordous Sistema" src="accordous-sistema.png" width="100%">
+</p>
+
 ## :rocket: Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
@@ -29,13 +33,13 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-Esse projeto é uma API Restful desenvolvida como teste técnico para o processo seletivo de Desenvolvedor Fullstack na Sudeste Online.
+Esse projeto é uma API Restful desenvolvida como teste técnico para o processo seletivo de Desenvolvedor Fullstack PHP na Accordous.
 O sistema possui **testes automatizados** para todos os recursos criados.
 
 
 ## 💻 Funcionalidades
 
-O sistema possui cadastros de produtos, culturas, pragas, dosagens assim como relatório de dosagens em PDF e sistema de autenticação usando JWT
+O sistema possui cadastros de propriedades/imóveis e contratos.
 
 ## 📄 Requisitos
 
@@ -64,7 +68,7 @@ copy .env.example .env
 - Assumindo que tenha o docker instalado na máquina, execute o comando:
 
 ```sh
-docker-compose up
+docker-compose up -d
 ```
 
 - Aguarde até que toda os serviços estejam ativos e as dependências do laravel estejam instaladas e as migrações instaladas. 
@@ -77,7 +81,13 @@ php artisan serve
 ```
 e o projeto está rodando em [http://localhost:8000](http://localhost:8000). 
 
-- Após o comando acima, abra um novo terminal, vá até a pasta do projeto e rode o comando abaixo para popular o banco:
+- Após o comando acima, abra um novo terminal, vá até a pasta do projeto e rode o comando abaixo para criar as tabelas
+
+```sh
+docker-compose exec laravel php artisan migrate
+```
+
+- Após isso, rode o comando abaixo para popular as tabelas
 
 ```sh
 docker-compose exec laravel php artisan db:seed
@@ -87,12 +97,5 @@ docker-compose exec laravel php artisan db:seed
 ```sh
 docker-compose exec laravel php artisan test
 ```
-
-## 📝 Documentação
-
-- [HTML Estático (contém somente os endpoints. Não contém detalhes de parâmetros, campos e corpo de requisições) - Swagger(OpenApi v2)](sudeste-online.swagger.html)
-- [Formato Yaml - Swagger(OpenApi v2)](sudeste-online.swagger.yml)
-- [Insomnia Endpoints Collection](sudeste-online.insomnia.json) (Para importar, clique no menu "Application" => Preferences => Data => Clique em "Import Data" => "From File" => selecione o arquivo e clique em "Import")
-- [Postman Endpoints Collection](sudeste-online.postman_collection.json)
 
 Desenvolvido por Rander Carlos :wave: [Linkedin!](https://www.linkedin.com/in/rander-carlos-caetano-freitas-308a63a8/)

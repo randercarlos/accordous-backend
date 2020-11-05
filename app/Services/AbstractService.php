@@ -11,7 +11,7 @@ abstract class AbstractService
 {
     protected $model;
 
-    public function findAll(Request $request): Collection {
+    public function findAll(Request $request) {
         $class = get_class($this->model);
         $obj = new $class;
 
